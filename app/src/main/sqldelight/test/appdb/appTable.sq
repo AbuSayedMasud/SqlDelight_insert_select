@@ -1,0 +1,17 @@
+CREATE TABLE appTransaction (
+id INTEGER ,
+    transferType TEXT,
+    totalAmount Text,
+    description TEXT,
+    quantity TEXT,
+    date TEXT,
+    identity TEXT
+);
+
+insertTransaction:
+INSERT INTO appTransaction(id,transferType, totalAmount, description, quantity, date, identity)
+VALUES(?, ?, ?, ?, ?, ?,?);
+
+getAppTransactions:
+SELECT *
+FROM appTransaction;
