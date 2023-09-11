@@ -62,7 +62,7 @@ fun TransactionList(appDataSource: appDataSource,viewModel:AppViewModel) {
 
 
     Column {
-        Button(onClick = { viewModel.insertTransaction("10", "1", "SomeDescription", "1", "2023-09-10", "SomeIdentity") }) {
+        Button(onClick = { viewModel.insertTransaction("14", "1", "SomeDescription", "1", "2023-09-10", "SomeIdentity") }) {
             Text("Insert Data")
         }
         LazyColumn {

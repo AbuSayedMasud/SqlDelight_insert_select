@@ -15,7 +15,7 @@ class AppViewModel(private val appDataSource: appDataSource) : ViewModel() {
     var transactionsState = MutableStateFlow<List<AppTransaction>>(emptyList())
 
     init {
-        // Start collecting the transactions flow when the ViewModel is created
+
         viewModelScope.launch {
             appDataSource.getAppTransactions().collect { transactions ->
                 transactionsState.value = transactions
@@ -41,7 +41,8 @@ class AppViewModel(private val appDataSource: appDataSource) : ViewModel() {
                 identity
             )
 
-            transactionsState.value = appDataSource.getAppTransactions().first()
+            val newTransaction = appDataSource.getAppTransactions().first()
+            transactionsState.value = transactionsState.value + newTransaction
         }
     }
 }
