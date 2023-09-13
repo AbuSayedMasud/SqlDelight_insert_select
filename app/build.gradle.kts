@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.squareup.sqldelight") version "1.5.5"
-}
+    kotlin("plugin.serialization") version "1.5.21"}
 
 android {
     namespace = "com.example.sqldelight"
@@ -43,11 +43,13 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
 }
 
 dependencies {
@@ -79,7 +81,7 @@ dependencies {
     implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
 
     implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
-
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07")
     implementation ("androidx.lifecycle:lifecycle-livedata:2.4.0-alpha01")
     implementation ("androidx.lifecycle:lifecycle-viewmodel:2.4.0-alpha01")
